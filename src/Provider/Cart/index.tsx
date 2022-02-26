@@ -1,4 +1,5 @@
 import { createContext,useContext,ReactNode,useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import api from "../../Service";
 import {SignLoginUser} from "../Login&SignUp/index";
 
@@ -27,7 +28,8 @@ interface CartContApi {
     removeAllCartApi:()=>void;
     showCart:boolean;
     setShowCart:(any:boolean)=>any;
-    deleteCartApi:(product:Product)=>any
+    deleteCartApi:(product:Product)=>any;
+    removerItemCart:({id}:Product)=>any
 }
 
 interface ItemDelete {
@@ -71,15 +73,11 @@ const CartProvider =({children}:CartChildren)=>{
         getCart()
     },[])
 
-    // const [total,setTotal] = useState((cart.filter(item => item.name === cartItem.name)).length)
-
-    // const totalCalc = () =>{
-    //     setTotal((cart.filter(item => item.name === cartItem.name)).length)
-    // }
-
     const addCartApi = ({name,category,price}:Product) =>{
+        
         const userId = id
         const data = {name,category,price,userId}
+        token === ''? toast.error("Vocẽ deve estar logado para adicionar ao carrinho!"):
         api.post("/cart",data,{
         headers: {
             Authorization: `Bearer ${token}`,
@@ -117,9 +115,11 @@ const CartProvider =({children}:CartChildren)=>{
 
     }
 
-    // const removoTypeList = ({name}:ItemDelete)=>{
-
-    // }
+    const removerItemCart = ({name}:Product)=>{
+        const list_items:Product[] = cart.filter(item=>item.name === name)
+        list_items.map(item=>deleteCartApi(item))
+        setListCart(listCart.filter(item =>item.name!==name))
+    }
 
     const deleteCartApi = ({id}:Product)=>{
         
@@ -147,7 +147,7 @@ const CartProvider =({children}:CartChildren)=>{
 
     return(
         <CartContext.Provider value={{cart,getCart,totalPrice,totalItens,addCartApi,removeCartApi,
-        removeAllCartApi,showCart,setShowCart,listCart,setListCart,deleteCartApi}}>
+        removeAllCartApi,showCart,setShowCart,listCart,setListCart,deleteCartApi,removerItemCart}}>
             {children}
         </CartContext.Provider>
     )

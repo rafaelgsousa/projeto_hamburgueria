@@ -21,7 +21,7 @@ interface Data {
 const CardCart = ({cartItem}:Data) => {
     console.log(cartItem)
     
-    const {cart,removeCartApi,addCartApi,deleteCartApi} = CartUser()
+    const {cart,removeCartApi,addCartApi,removerItemCart} = CartUser()
 
     const [total,setTotal] = useState((cart.filter(item => item.name === cartItem.name)).length)
 
@@ -33,12 +33,13 @@ const CardCart = ({cartItem}:Data) => {
 
     const handleSub =()=>{
         totalCalc()
-        if(total>0){
+        if(total-1 > 0){
             removeCartApi(cartItem)
             totalCalc()
         }
-        else if (total===0){
-            deleteCartApi(cartItem)
+        else if (total-1 === 0){
+            console.log("chegou aqui")
+            removerItemCart(cartItem)
             totalCalc()
         }
     }
@@ -48,18 +49,13 @@ const CardCart = ({cartItem}:Data) => {
         addCartApi(cartItem)
     }
 
-    const remove = ()=> {
-        removeCartApi(cartItem)
-        totalCalc()
-    }
-
     return(
         <CardCartItem>
             <div className="imagem">
                 <img src={cartItem.img} alt="item"/>
             </div>
             <div className="dados">
-                <h3>{cartItem.name}<span onClick={remove}><BsTrash/></span></h3>
+                <h3>{cartItem.name}<span onClick={()=>removerItemCart(cartItem)}><BsTrash/></span></h3>
                 <div className="controle">
                     <div className="sinais" onClick={handleSub}>-</div>
                     <div>{total}</div>
