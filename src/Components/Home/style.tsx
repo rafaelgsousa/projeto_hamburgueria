@@ -74,6 +74,18 @@ export const ContainerHome = styled.div `
                     box-sizing: border-box;
                     cursor: pointer;
                 }
+                .button-show{
+                    display:none;
+                    width: 20%;
+                    height: 80%;
+                    background-color: #219653;
+                    color:#E0E0E0;
+                    padding: 3px;
+                    border-radius: 5px;
+                    margin: 4px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                }
             }
             .conteinerdadoscart{
                 position: relative;
@@ -174,6 +186,7 @@ export const ContainerHome = styled.div `
                 align-items: center;
                 box-sizing: border-box;
                 border-radius: 5px;
+                padding:1px;
                 input {
                     display: none;
                     height: 80%;
@@ -185,6 +198,7 @@ export const ContainerHome = styled.div `
                     font-size: 10px;
                 }
                 .pes{
+                    display:none;
                     width: 100%;
                     height: 80%;
                     background-color: #219653;
@@ -193,6 +207,54 @@ export const ContainerHome = styled.div `
                     border-radius: 5px;
                     box-sizing: border-box;
                     cursor: pointer;
+                    margin:2px;
+                }
+                .button-show{
+                    display:block;
+                    width: 100%;
+                    height: 80%;
+                    background-color: #219653;
+                    color:#E0E0E0;
+                    padding: 3px;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                }
+            }
+            .search-box{
+                height: 100%;
+                width: 280px;
+                border: 2px solid #E0E0E0;
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
+                border-radius: 5px;
+                position:absolute;
+                top:0px;
+                left:50%;
+                transform:translate(-50%,0);
+                background-color: #F5F5F5;
+                z-index:4;
+                input {
+                    height: 80%;
+                    width: 80%;
+                    border: 0px solid white;
+                    padding: 0px;
+                    margin: 10px 5px 10px 10px;
+                    box-sizing: border-box;
+                    font-size: 10px;
+                }
+                .pes{
+                    width: 20%;
+                    height: 80%;
+                    background-color: #219653;
+                    color:#E0E0E0;
+                    padding: 3px;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    padding:5px;
+                    margin: 10px 10px 10px 5px;
                 }
             }
             .conteinerdadoscart{
@@ -221,6 +283,7 @@ export const ContainerHome = styled.div `
             
             .iconeseta{
                 height: 30px;
+                width: 20px;
                 font-weight: bold;
                 color: #BDBDBD;
                 cursor: pointer;

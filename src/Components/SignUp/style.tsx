@@ -19,7 +19,7 @@ export const ContainerSignUp = styled.div `
         padding:24px;
         margin-right: 50px;
         p{
-            padding-left:10px;
+            padding-left:5px;
             display: flex;
             justify-content: space-between;
             .principal {
@@ -29,6 +29,7 @@ export const ContainerSignUp = styled.div `
             span{
                 font-size: 14px;
                 text-align: left;
+                padding-left: 10px;
                 a {
                     color: #828282;
                 }
@@ -84,15 +85,18 @@ export const ContainerSignUp = styled.div `
     
     .logo {
         width: 40vw;
-        height: 50vh;
+        height: 70vh;
         box-sizing: border-box;
-        padding: 0px 20px;
+        padding: 30px 20px;
+        display:flex;
+        flex-direction: column;
         h2 {
             width: 100%;
             height: 20%;
             font-size: 45px;
             color:#333333;
             margin: 20px 0px;
+            margin-bottom: 30px;
             span{
                 font-size: 30px;
                 color: #EB5757;
@@ -101,16 +105,15 @@ export const ContainerSignUp = styled.div `
         .textlogo{
             display: flex;
             width: 100%;
-            height: 50%;
+            height: 80%;
             div {
                 width: 20%;
                 height: 70px;
-                margin: 10px;
+                margin: 20px;
                 font-size: 30px;
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
-                padding-top:10px;
                 color:#219653;
             }
             p {
@@ -130,6 +133,7 @@ export const ContainerSignUp = styled.div `
         background-color: #FFFFFF;
         border:2px solid #F5F5F5;
         padding:24px;
+        padding-top:50px;
         margin: 0px;
         p{
             padding-left:10px;
@@ -191,7 +195,7 @@ export const ContainerSignUp = styled.div `
             height: 20%;
             font-size: 45px;
             color:#333333;
-            margin: 20px 20px;
+            margin: 20px 0px;
             span{
                 font-size: 30px;
                 color: #EB5757;

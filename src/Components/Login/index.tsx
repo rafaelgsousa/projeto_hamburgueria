@@ -40,7 +40,6 @@ const Login = () => {
     return (
         <>
             <ContainerLogin>
-                {console.log(Login)}
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <p>Login</p>
                     <input {...register("email")} placeholder="email" type="email"/>

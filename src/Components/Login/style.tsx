@@ -72,15 +72,19 @@ export const ContainerLogin = styled.div `
     
     .logo {
         width: 40vw;
-        height: 50vh;
+        height: 70vh;
         box-sizing: border-box;
-        padding: 0px 20px;
+        padding: 20px 20px;
+        padding-top: 50px;
+        display:flex;
+        flex-direction: column;
         h2 {
             width: 100%;
             height: 20%;
             font-size: 45px;
             color:#333333;
             margin: 20px 0px;
+            margin-bottom: 30px;
             span{
                 font-size: 30px;
                 color: #EB5757;
@@ -89,20 +93,20 @@ export const ContainerLogin = styled.div `
         .textlogo{
             display: flex;
             width: 100%;
-            height: 50%;
+            height: 80%;
             div {
                 width: 20%;
-                height: 70px;
-                margin: 10px;
+                height: 100%;
+                margin: 20px;
                 font-size: 30px;
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
-                padding-top:10px;
                 color:#219653;
             }
             p {
                 width: 80%;
+                height: 100%;
             }
         }
     }
@@ -173,7 +177,7 @@ export const ContainerLogin = styled.div `
         h2 {
             width: 100%;
             height: 20%;
-            font-size: 45px;
+            font-size: 40px;
             color:#333333;
             margin: 20px 0px;
             span{
@@ -192,7 +196,7 @@ export const ContainerLogin = styled.div `
                 font-size: 30px;
                 display: flex;
                 justify-content: center;
-                align-items: flex-start;
+                align-items: center;
                 padding-top:10px;
                 color:#219653;
             }

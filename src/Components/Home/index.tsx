@@ -22,6 +22,8 @@ const Home = ()=> {
 
     const [word,setWord]=useState("")
 
+    const [showBox,setShowBox] = useState(true)
+
     const HandleWord=(word:string)=>{
         
         SearchFilter(word)
@@ -51,6 +53,13 @@ const Home = ()=> {
                     <div className="search">
                         <input placeholder="Categoria" value={word} onChange={(e)=>setWord(e.target.value)}/>
                         <FaSearch className="pes" onClick={()=>HandleWord(word)}/>
+                        <FaSearch className="button-show" onClick={()=>setShowBox(!showBox)}/>
+                    </div>
+                    <div className="search-box" style={{display:showBox?"none":"flex"}}>
+                        <input placeholder="Categoria" value={word} onChange={(e)=>setWord(e.target.value)}/>
+                        <FaSearch className="pes" onClick={()=>{
+                            setTimeout(()=>{HandleWord(word)},400)
+                            setTimeout(()=>{setShowBox(!showBox)},500)}}/>
                     </div>
                     <div className="conteinerdadoscart">
                         <div className="totalcart">{totalItens}</div>
