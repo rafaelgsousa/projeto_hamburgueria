@@ -19,6 +19,8 @@ interface Data {
 }
 
 const CardCart = ({cartItem}:Data) => {
+
+    console.log(cartItem)
     
     const {cart,removeCartApi,addCartApi,removerItemCart} = CartUser()
 

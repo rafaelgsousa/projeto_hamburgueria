@@ -46,6 +46,7 @@ const Home = ()=> {
         <>
         <ContainerHome>
             <header>
+                {console.log(products)}
                 <div className="logo">
                     <h3>Burguer <span>kenzie</span></h3>
                 </div>

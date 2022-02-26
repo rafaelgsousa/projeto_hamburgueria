@@ -118,6 +118,7 @@ export const ContainerLogin = styled.div `
         border-radius: 5px;
         display: flex;
         flex-direction: column;
+        align-items:center;
         box-sizing: border-box;
         background-color: #FFFFFF;
         border:2px solid #F5F5F5;
@@ -199,6 +200,7 @@ export const ContainerLogin = styled.div `
                 align-items: center;
                 padding-top:10px;
                 color:#219653;
+                padding:0px;
             }
             p {
                 width: 80%;

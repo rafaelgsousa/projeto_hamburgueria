@@ -129,11 +129,13 @@ export const ContainerSignUp = styled.div `
         border-radius: 5px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         box-sizing: border-box;
         background-color: #FFFFFF;
         border:2px solid #F5F5F5;
         padding:24px;
-        padding-top:50px;
+        padding-top:30px;
+        padding-bottom: 10px;
         margin: 0px;
         p{
             padding-left:10px;
@@ -190,12 +192,13 @@ export const ContainerSignUp = styled.div `
         width: 100vw;
         height: 30vh;
         box-sizing: border-box;
+        padding-top: 10px;
         h2 {
             width: 100%;
             height: 20%;
             font-size: 45px;
             color:#333333;
-            margin: 20px 0px;
+            margin: 10px 0px 10px;
             span{
                 font-size: 30px;
                 color: #EB5757;

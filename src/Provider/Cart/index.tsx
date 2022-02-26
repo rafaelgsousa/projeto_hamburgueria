@@ -10,10 +10,10 @@ interface CartChildren{
 interface Product {
     name:string;
     category:string;
-    img:string
+    img:string;
     price:number;
     userId:number;
-    id:number
+    id:number;
 }
 
 interface CartContApi {
