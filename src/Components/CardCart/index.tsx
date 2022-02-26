@@ -19,8 +19,9 @@ interface Data {
 }
 
 const CardCart = ({cartItem}:Data) => {
+    console.log(cartItem)
     
-    const {cart,removeCartApi,addCartApi} = CartUser()
+    const {cart,removeCartApi,addCartApi,deleteCartApi} = CartUser()
 
     const [total,setTotal] = useState((cart.filter(item => item.name === cartItem.name)).length)
 
@@ -31,15 +32,20 @@ const CardCart = ({cartItem}:Data) => {
     useEffect(()=>totalCalc(),[cart])
 
     const handleSub =()=>{
+        totalCalc()
         if(total>0){
             removeCartApi(cartItem)
+            totalCalc()
+        }
+        else if (total===0){
+            deleteCartApi(cartItem)
             totalCalc()
         }
     }
 
     const handleSum =()=>{
-        addCartApi(cartItem)
         totalCalc()
+        addCartApi(cartItem)
     }
 
     const remove = ()=> {
@@ -49,7 +55,6 @@ const CardCart = ({cartItem}:Data) => {
 
     return(
         <CardCartItem>
-            {console.log(`${cartItem.name} ==>>`,total)}
             <div className="imagem">
                 <img src={cartItem.img} alt="item"/>
             </div>

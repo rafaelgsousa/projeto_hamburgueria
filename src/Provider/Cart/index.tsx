@@ -26,7 +26,8 @@ interface CartContApi {
     removeCartApi:(idDelete:ItemDelete)=>void;
     removeAllCartApi:()=>void;
     showCart:boolean;
-    setShowCart:(any:boolean)=>any
+    setShowCart:(any:boolean)=>any;
+    deleteCartApi:(product:Product)=>any
 }
 
 interface ItemDelete {
@@ -70,10 +71,14 @@ const CartProvider =({children}:CartChildren)=>{
         getCart()
     },[])
 
-    const addCartApi = ({name,category,price}:Product) =>{
+    // const [total,setTotal] = useState((cart.filter(item => item.name === cartItem.name)).length)
 
+    // const totalCalc = () =>{
+    //     setTotal((cart.filter(item => item.name === cartItem.name)).length)
+    // }
+
+    const addCartApi = ({name,category,price}:Product) =>{
         const userId = id
-        console.log("TYPE",typeof(token))
         const data = {name,category,price,userId}
         api.post("/cart",data,{
         headers: {
@@ -116,7 +121,7 @@ const CartProvider =({children}:CartChildren)=>{
 
     // }
 
-    const deleteCartApi = ({id}:ItemDelete)=>{
+    const deleteCartApi = ({id}:Product)=>{
         
         
             api.delete(`/cart/${cart.filter(item=>item.id === id)[0].id}`,{
@@ -125,7 +130,7 @@ const CartProvider =({children}:CartChildren)=>{
                 }
             })
             .then(_=>{
-                if ((cart.filter(item =>item.id===id)).length === 0){
+                if ((cart.filter(item =>item.id=== id)).length === 0){
                     setListCart(listCart.filter(item =>item.id!==id))
                 }
                 getCart()   
@@ -142,7 +147,7 @@ const CartProvider =({children}:CartChildren)=>{
 
     return(
         <CartContext.Provider value={{cart,getCart,totalPrice,totalItens,addCartApi,removeCartApi,
-        removeAllCartApi,showCart,setShowCart,listCart,setListCart}}>
+        removeAllCartApi,showCart,setShowCart,listCart,setListCart,deleteCartApi}}>
             {children}
         </CartContext.Provider>
     )

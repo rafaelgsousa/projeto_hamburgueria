@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useHistory} from "react-router-dom";
+import {toast} from "react-toastify"
 
 interface RegisterData{
     email:string;
@@ -31,7 +32,9 @@ const Login = () => {
     }
 
     const handleLogin = (data:RegisterData) => {
-        Login(data,history)
+        Login(data)
+        history.push("/home")
+        toast.success("Logando...")
     }
 
     return (

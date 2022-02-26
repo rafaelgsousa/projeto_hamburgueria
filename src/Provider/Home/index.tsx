@@ -1,4 +1,4 @@
-import { createContext,useContext,ReactNode,useState, useEffect } from "react";
+import { createContext,useContext,ReactNode,useState } from "react";
 import api from "../../Service";
 
 interface HomeProviderData{
@@ -18,6 +18,7 @@ interface Home {
     products:Product[]
     filtered:Product[]
     SearchFilter:(word:string)=>void
+    Products:()=>void
 }
 
 
@@ -38,10 +39,6 @@ const HomeProvider = ({children}:HomeProviderData)=>{
         }
     }
 
-    useEffect(()=>{
-        Products()
-    },[])
-
     const Products = ()=>{
         api.get("/menu")
         .then(resp=>setProducts(resp.data))
@@ -49,7 +46,7 @@ const HomeProvider = ({children}:HomeProviderData)=>{
     }
 
     return(
-        <HomeContext.Provider value={{products,filtered,SearchFilter}}>
+        <HomeContext.Provider value={{products,filtered,SearchFilter,Products}}>
             {children}
         </HomeContext.Provider>
     )

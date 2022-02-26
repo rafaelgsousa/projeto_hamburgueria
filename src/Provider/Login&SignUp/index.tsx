@@ -1,6 +1,6 @@
 import { createContext,useContext,ReactNode,useState } from "react";
-import { History } from "history";
 import api from "../../Service";
+import {toast} from "react-toastify";
 
 interface LoginSignData {
     children:ReactNode
@@ -22,8 +22,8 @@ interface SignLoginData {
     id:string
     errorLogin:string
     errorSign:string
-    SignUp:(dataSign:DataSign,history:History)=>void
-    Login:(dataLogin:DataLogin,history:History)=>void
+    SignUp:(dataSign:DataSign)=>void
+    Login:(dataLogin:DataLogin)=>void
     Logout:()=>void
 
 }
@@ -41,17 +41,19 @@ const LoginSignProvider = ({children}:LoginSignData) => {
 
     const [errorLogin,setErrorLogin] = useState("")
 
-    const SignUp = (dataSign:DataSign,history:History) => {
+    const SignUp = (dataSign:DataSign) => {
 
         api.post("/signup",dataSign)
         .then(resp=>{
-            
-            history.push("/")
+            toast.success("Usuário cadastrado")
         })
-        .catch(err=> setErrorSign(err))
+        .catch(err=> {
+            toast.error("Erro no login. Verifica os dados")
+            setErrorSign(err)
+        })
     }
 
-    const Login =(dataLogin:DataLogin,history:History)=>{
+    const Login =(dataLogin:DataLogin)=>{
 
         api.post("/login",dataLogin)
         .then(resp=>{
@@ -64,9 +66,12 @@ const LoginSignProvider = ({children}:LoginSignData) => {
 
             localStorage.setItem("tokenIdcliente",JSON.stringify(resp.data.user.id))
 
-            history.push("/home")
+            toast.success("Logando")
         })
-        .catch(err=> setErrorLogin(err))
+        .catch(err=>{
+            toast.error("Erro no login. Verifica os dados")
+             setErrorLogin(err)
+            })
     }
 
     const Logout = ()=>{

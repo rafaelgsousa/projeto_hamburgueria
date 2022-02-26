@@ -40,7 +40,8 @@ const Signup = () => {
 
     const onSignUp = ({username,email,password}:onLoginData)=>{
         const data = {username,email,password}
-        SignUp(data,history)
+        SignUp(data)
+        history.push("/")
     }
 
     if(token){

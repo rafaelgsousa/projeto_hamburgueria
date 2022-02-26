@@ -8,13 +8,13 @@ import { HomeUse } from "../../Provider/Home";
 import { CartUser } from "../../Provider/Cart";
 import { SignLoginUser } from "../../Provider/Login&SignUp";
 import { useHistory} from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Home = ()=> {
 
     const history=useHistory()
 
-    const {products,filtered,SearchFilter}=HomeUse()
+    const {products,filtered,SearchFilter,Products}=HomeUse()
 
     const {totalItens,showCart,setShowCart}=CartUser()
 
@@ -27,6 +27,10 @@ const Home = ()=> {
         SearchFilter(word)
         
     }
+
+    useEffect(()=>{
+        Products()
+    },[])
 
     if(!token){
         history.push("/")
