@@ -19,7 +19,6 @@ interface Data {
 }
 
 const CardCart = ({cartItem}:Data) => {
-    console.log(cartItem)
     
     const {cart,removeCartApi,addCartApi,removerItemCart} = CartUser()
 
@@ -38,7 +37,6 @@ const CardCart = ({cartItem}:Data) => {
             totalCalc()
         }
         else if (total-1 === 0){
-            console.log("chegou aqui")
             removerItemCart(cartItem)
             totalCalc()
         }

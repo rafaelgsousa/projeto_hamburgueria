@@ -62,7 +62,6 @@ const CartProvider =({children}:CartChildren)=>{
             }
         })
         .then(resp=>{
-            console.log("RESPOSTA",resp.data)
             // localStorage.setItem("cart",resp)
             setCart(resp.data)
         })

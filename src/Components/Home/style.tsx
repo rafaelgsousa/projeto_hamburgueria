@@ -6,6 +6,7 @@ export const ContainerHome = styled.div `
     height: 100vh;
     padding: 0px;
     margin: 0px;
+    position:relative;
     header {
         height: 60px;
         width: 100%;
@@ -14,6 +15,10 @@ export const ContainerHome = styled.div `
         display: flex;
         align-items: center;
         box-sizing: border-box;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:3;
         .logo {
             width: 50%;
             height: 100%;
@@ -106,6 +111,8 @@ export const ContainerHome = styled.div `
         }
     }
     .dashboard {
+        position:relative;
+        top:60px;
         width: 100%;
         padding: 20px 50px;
         display: flex;
