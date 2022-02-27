@@ -146,7 +146,7 @@ export const ContainerSignUp = styled.div `
         }
         input {
         width: 100%;
-        height: 60px;
+        height: 50px;
         box-sizing: border-box;
         border: 2px solid #333333;
         border-radius: 8px;
@@ -156,7 +156,7 @@ export const ContainerSignUp = styled.div `
         }
         button {
             width: 100%;
-            height: 60px;
+            height: 50px;
             box-sizing: border-box;
             border-radius: 8px;
             background-color: #219653;

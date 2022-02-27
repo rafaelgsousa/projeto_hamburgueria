@@ -175,6 +175,7 @@ export const ContainerLogin = styled.div `
         width: 100vw;
         height: 30vh;
         box-sizing: border-box;
+        padding-top:30px;
         h2 {
             width: 100%;
             height: 20%;
