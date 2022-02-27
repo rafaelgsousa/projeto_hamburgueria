@@ -36,6 +36,7 @@ export const ContainerSignUp = styled.div `
             }
             .link{
                 text-decoration: none;
+                line-height:23px;
                 color: #999;
             }
         }
@@ -140,6 +141,7 @@ export const ContainerSignUp = styled.div `
         p{
             padding-left:10px;
             .link{
+                line-height:23px;
                 text-decoration: none;
                 color: inherit;
             }
